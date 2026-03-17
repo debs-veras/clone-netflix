@@ -1,0 +1,638 @@
+/* ============================================================
+   NETFLIX CLONE – style.css (Mobile First)
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --netflix-red: rgb(229, 9, 20);
+  --netflix-red-hover: rgb(193, 17, 25);
+  --netflix-black: #000000;
+  --netflix-dark: #0f0f0f; /* Richer cinematic black */
+  --netflix-dark-2: #232323;
+  --netflix-gray: #b3b3b3;
+  --netflix-light-gray: #737373;
+  --netflix-white: #ffffff;
+  --border-color: #333;
+  --font-sans:
+    "Netflix Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --transition: 400ms cubic-bezier(0.5, 0, 0.1, 1);
+  --section-divider: #232323;
+}
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--netflix-black);
+  color: var(--netflix-white);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 5%;
+  transition: background-color var(--transition);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo img {
+  width: 88px;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .logo img {
+    width: 148px;
+  }
+
+  .header {
+    padding: 1.5rem 3.5%;
+  }
+}
+
+.btn-signin {
+  background-color: var(--netflix-red);
+  color: var(--netflix-white);
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  transition: background-color var(--transition);
+}
+
+@media (min-width: 768px) {
+  .btn-signin {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.btn-signin:hover {
+  background-color: var(--netflix-red-hover);
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url("../img/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 6rem 1rem 4rem;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8); /* Depth shadow */
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 40%);
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    radial-gradient(
+      circle at center,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  width: 100%;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: normal;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.hero-cta-text {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    padding: 8rem 2rem;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+/* ============================================================
+   FORM
+   ============================================================ */
+.hero-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .hero-form {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+}
+
+.form-group {
+  position: relative;
+  flex: 1;
+}
+
+.form-input {
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  padding: 1.5rem 1rem 0.5rem;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+}
+
+.form-input:focus {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+.form-label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: var(--netflix-gray);
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.form-input:focus ~ .form-label,
+.form-input:not(:placeholder-shown) ~ .form-label {
+  top: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--netflix-red);
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all var(--transition);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+  background-color: var(--netflix-red-hover);
+}
+
+@media (min-width: 768px) {
+  .form-input {
+    height: 60px;
+  }
+
+  .btn-primary {
+    font-size: 1.5rem;
+    padding: 0 2rem;
+    height: 60px;
+  }
+}
+
+.btn-primary:hover {
+  background-color: var(--netflix-red-hover);
+}
+
+.btn-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* ============================================================
+   FEATURE SECTIONS
+   ============================================================ */
+.feature-section {
+  padding: 3.5rem 1.5rem;
+  border-bottom: 8px solid var(--section-divider);
+}
+
+.feature-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .feature-section {
+    padding: 4.5rem 3.5%;
+  }
+
+  .feature-container {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .feature-container.feature-right {
+    flex-direction: row-reverse;
+  }
+}
+
+.feature-text {
+  flex: 1;
+}
+
+.feature-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.feature-desc {
+  font-size: 1.125rem;
+}
+
+@media (min-width: 768px) {
+  .feature-title {
+    font-size: 2.5rem;
+  }
+
+  .feature-desc {
+    font-size: 1.5rem;
+  }
+}
+
+.feature-media {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* TV & Devices Video alignment */
+.tv-wrapper,
+.devices-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.tv-video {
+  position: absolute;
+  top: 21%;
+  left: 13%;
+  width: 74%;
+  height: 54%;
+  object-fit: contain;
+}
+
+.devices-video {
+  position: absolute;
+  z-index: -1;
+  top: 10%;
+  left: 18.5%;
+  width: 63%;
+  height: 48%;
+  object-fit: contain;
+}
+
+/* Download badge */
+.download-wrapper {
+  position: relative;
+}
+
+.download-badge {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 300px;
+  background: #000;
+  border: 2px solid #333;
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.download-thumb {
+  width: 3rem;
+  height: 4rem;
+  object-fit: cover;
+}
+
+.download-info {
+  flex: 1;
+  text-align: left;
+}
+
+.download-status {
+  color: #0071eb;
+  font-size: 0.8rem;
+}
+
+/* ============================================================
+   FAQ SECTION
+   ============================================================ */
+.faq-section {
+  padding: 4rem 1.5rem;
+  border-bottom: 8px solid var(--section-divider);
+}
+
+.faq-container {
+  max-width: 815px;
+  margin: 0 auto;
+}
+
+.faq-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.faq-item {
+  margin-bottom: 0.5rem;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2d2d2d;
+  color: #fff;
+  padding: 1.5rem;
+  font-size: 1.125rem;
+  text-align: left;
+  transition: background 0.25s;
+}
+
+.faq-question:hover {
+  background: #414141;
+}
+
+@media (min-width: 768px) {
+  .faq-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .faq-question {
+    padding: 1.5rem;
+    font-size: 1.5rem;
+  }
+}
+
+.faq-icon {
+  font-size: 2.25rem;
+  transition: transform 0.4s cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+.faq-question[aria-expanded="true"] .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  background: #2d2d2d;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease,
+    padding 0.3s ease;
+}
+
+.faq-answer.open {
+  max-height: 1000px;
+  padding: 1.5rem;
+}
+
+.faq-cta {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  padding: 4rem 5% 2rem;
+  color: #757575;
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-contact {
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 600px) {
+  .footer-links {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .footer-links {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.footer-links a {
+  font-size: 0.875rem;
+  text-decoration: underline;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* Section Divider */
+.section-divider {
+  display: none;
+}
+
+/* ============================================================
+   PRELOADER
+   ============================================================ */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--netflix-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s;
+}
+
+.preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.loader-logo {
+  width: 150px;
+  height: auto;
+  animation: logo-pulse 2s infinite ease-in-out;
+}
+
+.loader-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(229, 9, 20, 0.2);
+  border-top-color: var(--netflix-red);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes logo-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(0.95); }
+}
