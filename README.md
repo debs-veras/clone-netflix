@@ -32,8 +32,3 @@ Uma réplica visual da página de entrada (landing page) da Netflix, focada em d
    cd clone-netflix
    ```
 3. Abra o arquivo `index.html` em seu navegador ou use uma extensão como "Live Server" no VS Code.
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
